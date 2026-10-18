@@ -6,9 +6,14 @@
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "db:migrate": "auth migrate --yes",
+    "predev": "npm run db:migrate",
+    "prestart": "npm run db:migrate"
   },
   "dependencies": {
+    "auth": "^1.7.10",
+    "better-auth": "^1.7.10",
     "lucide-react": "^1.56.0",
     "next": "^16.4.0",
     "react": "^19.3.0",

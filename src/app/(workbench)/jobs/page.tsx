@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { Search } from "lucide-react";
 import { JobRow } from "@/components/job-row";
+import { ManualJobBoard } from "@/components/manual-job-board";
 import { useDemoState } from "@/components/demo-state";
 import { jobs } from "@/lib/jobs";
 
@@ -27,7 +28,9 @@ export default function JobsPage() {
 
   return (
     <div className="page">
-      <header className="page-heading inline-heading"><h1>全部岗位</h1><p>查看已发现的岗位</p></header>
+      <header className="page-heading inline-heading"><h1>全部岗位</h1><p>查看官网链接与示例岗位</p></header>
+      <ManualJobBoard allowAdd />
+      <div className="section-heading example-heading"><h2>示例岗位</h2></div>
       <div className="search-field"><Search size={21} aria-hidden="true" /><input aria-label="搜索岗位或企业" placeholder="搜索岗位或企业" value={query} onChange={(event) => setQuery(event.target.value)} /></div>
       <div className="filters">
         <select aria-label="城市" value={city} onChange={(event) => setCity(event.target.value)}><option value="">城市</option><option>北京</option><option>杭州</option><option>深圳</option></select>
