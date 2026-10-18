@@ -56,6 +56,14 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .manual-job-row { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding: 17px 18px; border: 1px solid var(--line); border-radius: 9px; background: #f9fbff; }
 .manual-job-row h3 { margin: 5px 0; font-size: 19px; }
 .manual-job-row p { margin: 0; color: #8490a8; font-size: 13px; }
+.manual-job-row > div:first-child { min-width: 0; }
+.manual-match { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 11px; }
+.manual-match-chip { padding: 4px 8px; border-radius: 6px; font-size: 12px; font-weight: 700; }
+.manual-match-chip.match { color: #087c65; background: #e0f7ef; }
+.manual-match-chip.mismatch { color: #aa581b; background: #fff0df; }
+.manual-match-chip.unknown { color: #6c7591; background: #edf1f8; }
+.manual-job-row .manual-check-note { margin-top: 8px; color: #8b96ab; }
+.manual-check-note a { color: #3c5af6; }
 .manual-source { color: #4662e9; font-size: 13px; font-weight: 700; }
 .manual-job-actions { display: flex; gap: 8px; flex: none; }
 .example-heading { margin-top: 32px; }

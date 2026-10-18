@@ -17,7 +17,7 @@
 | 登录与注册 | `/login` |
 | 首次配置 | `/onboarding` |
 
-**页面内置的岗位、企业、匹配理由和岗位时间仍为示例。** 手动保存的官网链接与示例岗位分开展示；岗位名称和城市由用户填写，系统只核验链接格式与官方域名，不自动核验岗位是否仍有效。手动链接按官网岗位 ID 去重，但自动采集和增量检查尚未接入；首页真实新发现仍为零。AI 匹配、简历上传也尚未接入。示例岗位的“访问官网”按钮不会打开真实岗位。来源核查见 [docs/source-review-2026-10-17.md](docs/source-review-2026-10-17.md)。
+**页面内置的岗位、企业、匹配理由和岗位时间仍为示例。** 手动保存的官网链接与示例岗位分开展示；岗位名称和城市由用户填写，系统只核验链接格式与官方域名，不自动核验岗位是否仍有效。手动链接按官网岗位 ID 去重，并显示基于用户画像的企业、城市及岗位名称字面命中提示；这不是 JD 分析或 AI 推荐，毕业年份与招聘类型仍需到官网核对。自动采集和增量检查尚未接入；首页真实新发现仍为零。简历上传也尚未接入。示例岗位的“访问官网”按钮不会打开真实岗位。来源核查见 [docs/source-review-2026-10-17.md](docs/source-review-2026-10-17.md)。
 
 账户目前用于本机试运行，尚无邮箱验证和密码找回。请勿将这个版本公开部署给真实用户。部署、持久化云数据库与隐私检查列在后续阶段。
 
@@ -33,7 +33,7 @@ npm run dev
 
 打开 [http://localhost:3000](http://localhost:3000)。如端口不同，请将 `BETTER_AUTH_URL` 改为实际访问地址。请保留现有 `.env.local`；重新生成密钥会使已有登录会话失效。
 
-`npm run dev` 和 `npm run start` 会先执行数据库迁移。数据库默认在被 Git 忽略的 `.data/sunjobradar.sqlite`；可用 `SUNJOBRADAR_DB_PATH` 指定其他本机路径。可运行 `npm run lint`、`npm run build` 和 `node --experimental-strip-types --test tests/official-job-url.test.mjs` 验证项目。运行中的本机服务可用 `node --test tests/manual-jobs.e2e.mjs` 验证账户隔离与链接接口（默认测试端口为 3012，可设 `TEST_BASE_URL`）。
+`npm run dev` 和 `npm run start` 会先执行数据库迁移。数据库默认在被 Git 忽略的 `.data/sunjobradar.sqlite`；可用 `SUNJOBRADAR_DB_PATH` 指定其他本机路径。可运行 `npm run lint`、`npm run build` 和 `node --experimental-strip-types --test tests/official-job-url.test.mjs tests/manual-job-match.test.mjs` 验证项目。运行中的本机服务可用 `node --test tests/manual-jobs.e2e.mjs` 验证账户隔离与链接接口（默认测试端口为 3012，可设 `TEST_BASE_URL`）。
 
 ## 设计参考图
 
