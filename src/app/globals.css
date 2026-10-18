@@ -55,6 +55,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .manual-job-stack { display: grid; gap: 10px; }
 .manual-job-row { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding: 17px 18px; border: 1px solid var(--line); border-radius: 9px; background: #f9fbff; }
 .manual-job-row h3 { margin: 5px 0; font-size: 19px; }
+.live-board .manual-job-row h3 a { color: var(--ink); }
 .manual-job-row p { margin: 0; color: #8490a8; font-size: 13px; }
 .manual-job-row > div:first-child { min-width: 0; }
 .manual-match { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 11px; }

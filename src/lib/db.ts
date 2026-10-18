@@ -68,3 +68,20 @@ if (version < 2) {
     PRAGMA user_version = 2;
   `);
 }
+
+if (version < 3) {
+  db.exec(`
+    INSERT OR IGNORE INTO source (id, company, official_url, status)
+      VALUES ('weride', '文远知行', 'https://www.weride.ai/careers', 'pending');
+    CREATE TABLE IF NOT EXISTS source_run (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      source_id TEXT NOT NULL REFERENCES source(id),
+      checked_at TEXT NOT NULL,
+      status TEXT NOT NULL CHECK (status IN ('success', 'error')),
+      job_count INTEGER NOT NULL DEFAULT 0,
+      new_count INTEGER NOT NULL DEFAULT 0,
+      error_text TEXT
+    );
+    PRAGMA user_version = 3;
+  `);
+}

@@ -4,7 +4,7 @@
 
 ## 当前进度
 
-已完成前端界面、本机账户与服务端数据保存。注册后可以配置求职画像、收藏和隐藏示例岗位，也可以在“全部岗位”手动保存美团或华为官网的具体岗位详情链接。这些数据按账户隔离，保存在本机 SQLite 数据库中。原先保存在浏览器中的设置可以在首次配置页手动导入。阶段划分与验收条件见 [PLAN.md](PLAN.md)。
+已完成前端界面、本机账户与服务端数据保存。文远知行官网链接的 Lever 公开职位接口已接入：独立检查任务读取中国校招岗位、按来源岗位 ID 去重，并记录首次发现、最近出现时间和检查失败。注册后可以配置求职画像、收藏和隐藏示例岗位，也可以手动保存美团或华为官网的具体岗位详情链接。数据保存在本机 SQLite 数据库中。阶段划分与验收条件见 [PLAN.md](PLAN.md)。
 
 | 页面 | 地址 |
 | --- | --- |
@@ -17,7 +17,7 @@
 | 登录与注册 | `/login` |
 | 首次配置 | `/onboarding` |
 
-**页面内置的岗位、企业、匹配理由和岗位时间仍为示例。** 手动保存的官网链接与示例岗位分开展示；岗位名称和城市由用户填写，系统只核验链接格式与官方域名，不自动核验岗位是否仍有效。手动链接按官网岗位 ID 去重，并显示基于用户画像的企业、城市及岗位名称字面命中提示；这不是 JD 分析或 AI 推荐，毕业年份与招聘类型仍需到官网核对。自动采集和增量检查尚未接入；首页真实新发现仍为零。简历上传也尚未接入。示例岗位的“访问官网”按钮不会打开真实岗位。来源核查见 [docs/source-review-2026-10-17.md](docs/source-review-2026-10-17.md)。
+**“示例岗位”区域的岗位、企业、匹配理由和时间仍为示例。** “真实校招岗位”区域来自文远知行公开接口，目前只筛选来源标记为“中国／校招”的记录；具体城市、毕业年份和岗位要求需在原站核对。手动保存的美团、华为官网链接由用户填写，系统只核验链接格式，不自动抓取这两个网站。手动链接的条件提示不是 JD 分析或 AI 推荐。简历上传尚未接入。来源核查见 [docs/source-review-2026-10-17.md](docs/source-review-2026-10-17.md)。
 
 账户目前用于本机试运行，尚无邮箱验证和密码找回。请勿将这个版本公开部署给真实用户。部署、持久化云数据库与隐私检查列在后续阶段。
 
@@ -33,7 +33,9 @@ npm run dev
 
 打开 [http://localhost:3000](http://localhost:3000)。如端口不同，请将 `BETTER_AUTH_URL` 改为实际访问地址。请保留现有 `.env.local`；重新生成密钥会使已有登录会话失效。
 
-`npm run dev` 和 `npm run start` 会先执行数据库迁移。数据库默认在被 Git 忽略的 `.data/sunjobradar.sqlite`；可用 `SUNJOBRADAR_DB_PATH` 指定其他本机路径。可运行 `npm run lint`、`npm run build` 和 `node --experimental-strip-types --test tests/official-job-url.test.mjs tests/manual-job-match.test.mjs` 验证项目。运行中的本机服务可用 `node --test tests/manual-jobs.e2e.mjs` 验证账户隔离与链接接口（默认测试端口为 3012，可设 `TEST_BASE_URL`）。
+在另一个终端运行 `npm run jobs:watch`，它启动后立即检查一次文远知行公开接口，此后每 12 小时检查一次。该终端关闭后检查即停止；单次检查可运行 `npm run jobs:sync`。自动任务的频率暂时与“监控设置”中个人保存的期望时间无关。失败会记入数据库并显示在监控设置页；失败时保留上次成功检查得到的岗位。
+
+`npm run dev`、`npm run start` 和 `npm run build` 会先执行数据库迁移。数据库默认在被 Git 忽略的 `.data/sunjobradar.sqlite`；可用 `SUNJOBRADAR_DB_PATH` 指定其他本机路径。可运行 `npm run lint`、`npm run build` 和 `node --experimental-strip-types --test tests/*.test.mjs` 验证项目。运行中的本机服务可用 `node --test tests/manual-jobs.e2e.mjs tests/live-jobs.e2e.mjs` 验证接口（默认测试端口分别为 3012 和 3015，统一测试时设置 `TEST_BASE_URL`）。
 
 ## 设计参考图
 

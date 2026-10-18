@@ -5,11 +5,16 @@
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
+    "prebuild": "npm run db:migrate",
     "start": "next start",
     "lint": "eslint",
     "db:migrate": "auth migrate --yes",
     "predev": "npm run db:migrate",
-    "prestart": "npm run db:migrate"
+    "prestart": "npm run db:migrate",
+    "jobs:sync": "node --experimental-strip-types scripts/sync-jobs.mjs",
+    "jobs:watch": "node --experimental-strip-types scripts/sync-jobs.mjs --watch",
+    "prejobs:sync": "npm run db:migrate",
+    "prejobs:watch": "npm run db:migrate"
   },
   "dependencies": {
     "auth": "^1.7.10",
