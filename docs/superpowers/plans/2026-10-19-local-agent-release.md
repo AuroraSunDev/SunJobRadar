@@ -14,7 +14,7 @@
 - [x] Task 2 — loopback server and dashboard. Write HTTP security and persistence tests, implement pairing and read/profile/favorite APIs; render desktop/mobile with source boundaries and stale analysis.
 - [x] Task 3 — setup/collect skills, portable plugin, examples and docs. Validate skills, run realistic clean onboarding and a real search import; record capability limitations.
 - [x] Task 4 — full regression suite, independent whole-change review, fix important findings with reproducing tests, browser acceptance, privacy scan and clean package.
-- [ ] Task 5 — commit scoped source, recheck remote head, push without force, create v0.2.0 tag/release when GitHub access permits, verify remote content.
+- [x] Task 5 — commit scoped source, recheck remote head, push without force, create v0.2.0 tag/release when GitHub access permits, verify remote content.
 
 ## Execution ledger
 
@@ -27,3 +27,4 @@
 - Final review: independent reviewer found no Critical findings; accepted URL-parser crash, hash-route job collision and historical-fact substitution issues. All reproduced and fixed in one pass with regression tests. Timezone-free timestamps and silently assumed schedule preferences were treated as data-correctness issues and fixed as well; HTTP test title corrected to match actual coverage.
 - Final: malformed request returns 400 and service stays alive; distinct hash jobs remain distinct; old analysis retains cited fact snapshots after corrections. Suite 26/26 passed. Existing TypeScript module-format warnings retained; no new application browser warnings or errors observed.
 - Browser acceptance: desktop 1536x1024 and mobile 390x844; pairing, AI Builder+Shanghai filtering, favorite after reload, editable graduation/version increment/stale UI, stale-warning download, records and mobile return flow passed. Test data is not part of source.
+- Publication: source 4dafb9a pushed without force; public repository visibility confirmed by GitHub connector. v0.2.0 tag and formal Release created. GitHub Actions run 39197356362 succeeded (26 checks); personal cloud instance was not modified. README updated with the published download entry.

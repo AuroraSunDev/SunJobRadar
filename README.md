@@ -2,6 +2,8 @@
 
 **把仓库交给你的 Agent，生成属于自己的本机求职工作台。**
 
+[下载 v0.2.0 初版](https://github.com/AuroraSunDev/SunJobRadar/releases/tag/v0.2.0) · [查看自动检查](https://github.com/AuroraSunDev/SunJobRadar/actions/workflows/local-workbench.yml) · [MIT License](LICENSE)
+
 Agent 引导你确认简历事实和求职意向，使用固定模板建立私人岗位库，再联网发现岗位、保存原始 JD 与匹配依据。你在浏览器里筛选、收藏、核对条件并准备申请材料。
 
 初版 **v0.2.0 · 本机优先**。工作台运行只需 **Node.js 24.15+**，无需安装 npm 依赖，也没有内置的模型密钥要求。搜索与分析由你自己的 Agent 完成，相关工具、额度和隐私设置依该 Agent 而定。
@@ -9,6 +11,8 @@ Agent 引导你确认简历事实和求职意向，使用固定模板建立私�
 ## 用自己的 Agent 开始
 
 下载或克隆：
+
+不使用 Git 时，可在上方 Release 页面下载 **Source code (zip)** 并解压，再让 Agent 打开解压后的项目目录。
 
 ```bash
 git clone https://github.com/AuroraSunDev/SunJobRadar.git
