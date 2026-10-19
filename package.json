@@ -14,7 +14,9 @@
     "jobs:sync": "node --experimental-strip-types scripts/sync-jobs.mjs",
     "jobs:watch": "node --experimental-strip-types scripts/sync-jobs.mjs --watch",
     "prejobs:sync": "npm run db:migrate",
-    "prejobs:watch": "npm run db:migrate"
+    "prejobs:watch": "npm run db:migrate",
+    "test": "node --experimental-strip-types --test tests/*.test.mjs",
+    "workbench:create": "node scripts/create-workbench.mjs"
   },
   "dependencies": {
     "auth": "^1.7.10",

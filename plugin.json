@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "sunjobradar",
+  "version": "0.2.0",
+  "description": "通过用户自己的 Agent 引导确认求职画像，生成本机私人工作台，并检索、核验和保存真实岗位。",
+  "extensions": {
+    "com.openai": { "onboardingSkill": "./skills/setup/SKILL.md" }
+  }
+}

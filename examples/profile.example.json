@@ -1,0 +1,13 @@
+{
+  "confirmed": false,
+  "name": "示例同学（虚构）",
+  "graduation": "2028-06",
+  "recruitment": "校招",
+  "roles": ["软件开发", "AI Builder"],
+  "cities": [],
+  "mustHave": [],
+  "exclusions": [],
+  "summary": "此示例仅用于说明结构，请使用用户确认的背景。",
+  "facts": [{"id":"course-java","text":"简历陈述：参与 Java 课程项目。","source":"示例简历／课程项目（虚构）","boundary":"团队项目，只能归属本人负责的模块；未独立核验源码。"}],
+  "schedule": {"everyDays":2,"time":"10:00","timezone":"Asia/Shanghai"}
+}

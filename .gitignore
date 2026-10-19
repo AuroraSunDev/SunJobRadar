@@ -7,3 +7,6 @@ out/
 design-references/
 .DS_Store
 .data/
+cloud/
+.sunjobradar/
+private/

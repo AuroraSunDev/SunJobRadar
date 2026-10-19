@@ -1,0 +1,21 @@
+{
+  "id": "fictional-example-not-a-real-search",
+  "startedAt": "2026-10-19T01:00:00Z",
+  "completedAt": "2026-10-19T01:05:00Z",
+  "status": "partial",
+  "sources": [{"url":"https://example.com/jobs/fictional","status":"partial","note":"虚构数据，只展示导入结构，不能用作真实检索结果。"}],
+  "jobs": [{
+    "url":"https://example.com/jobs/fictional",
+    "title":"软件开发工程师（虚构示例）",
+    "company":"示例公司（虚构）",
+    "city":"待核对",
+    "roles":["软件开发"],
+    "observedAt":"2026-10-19T01:03:00Z",
+    "sourceStatus":"partial",
+    "jd":"虚构示例：要求 Java 课程项目经验。",
+    "requirements":[{"text":"Java 课程项目经验","state":"matched","must":false,"factIds":["course-java"],"evidence":"Java 课程项目经验","reason":"对应用户确认的课程项目陈述，尚未核验作品。"}],
+    "recommendation":"cautious",
+    "summary":"虚构示例，不代表真实招聘岗位。",
+    "profileVersion":1
+  }]
+}
